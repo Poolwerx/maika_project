@@ -1,0 +1,37 @@
+{% extends "../main/base.html" %}
+{% block csslink %}
+<link rel="stylesheet" href="static/css/login.css">
+{% endblock csslink %}
+{% block title %}
+Вход
+{% endblock title %}
+{% block content %}
+<div class="page__main-block main-block">
+    <div class="main-block__container _container">
+        <div class="main-block__body">
+            <div class="content_block">
+                <div class="main-block__title">
+                    Вход пользователя
+                </div>
+                <form method="post" action="{% url 'login' %}" class="login_form">
+                    {% csrf_token %}
+                    <div class="main-block__form-fields">
+                        <div class="main-block__form-field">
+                            <input type="text" placeholder="Логин/Почта" name="email_text">
+                        </div>
+                        <div class="main-block__form-field">
+                            <input type="password" placeholder="Пароль" name="password">
+                        </div>
+                    </div>
+                    <div class="main-block__form-buttons">
+                        <button class="button-form" type="submit">Отправить</button>
+                    </div>
+                </form>
+                <div class="main-block__p">
+                    <p class="main-block__p-text">Еще нет <a href="{% url 'register' %}" class="link">аккаунта?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends "../main/base.html" %}
+{% block csslink %}
+<link rel="stylesheet" href="static/css/register.css">
+{% endblock csslink %}
+{% block title %}
+Регистрация
+{% endblock title %}
+{% block content %}
+<div class="page__main-block main-block">
+    <div class="main-block__container _container">
+        <div class="main-block__body">
+            <div class="content_block">
+                <div class="main-block__title">
+                    Регистрация
+                </div>
+                <form method="post" class="register_form" action="{% url 'register' %}">
+                    {% csrf_token %}
+                    <div class="main-block__form-fields">
+                        <div class="main-block__form-field">
+                            <input type="text" class="username" placeholder="Логин" name="username">
+                        </div>
+                        <div class="main-block__form-field">
+                            <input type="email" class="email" placeholder="Почта" name="email">
+                        </div>
+                        <div class="main-block__form-field">
+                            <input type="password" class="password1" placeholder="Пароль" name="password1">
+                        </div>
+                        <div class="main-block__form-field">
+                            <input type="password" class="password2" placeholder="Повтор пароля" name="password2">
+                        </div>
+                    </div>
+                    <div class="main-block__form-buttons">
+                        <button type="submit" class="button-form">Отправить</button>
+                    </div>
+                </form>
+                <div class="main-block__p">
+                    <p class="main-block__p-text">Уже есть <a href="{% url 'login' %}" class="link">аккаунт?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

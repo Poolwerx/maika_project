@@ -1,0 +1,63 @@
+/* Основная тема - блок логирования */
+
+.main-block {}
+.main-block__container {
+}
+.main-block__body {
+    padding: 184px 0px 191px 0px;
+}
+.content_block {
+    padding-left:  161px;
+}
+input {
+   height: 45px; 
+   width: 100%;
+   font-size: 14px;
+   border: 2px solid #E9F2FF;
+   border-radius: 5px;
+   padding-left: 25px;
+}
+.main-block__title{
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    margin-left: 170px;
+}
+
+.main-block__form-fields{
+}
+
+.main-block__form-field{
+    max-width: 600px;
+    margin-bottom: 10px;
+}
+
+.main-block__form-buttons{}
+.button-form {
+    display: block;
+    height: 35px;
+    width: 500px;
+    border-radius: 15px;
+    background-color: rgb(190, 190, 190);
+    text-align: center;
+    line-height: 40px;
+    margin-left: 50px;
+    font-size: 18px;
+    font-weight: 400;
+    
+}
+.button-form:hover {
+    background-color: rgb(160, 160, 160);
+}
+.main-block__p {
+    margin-top: 10px;
+
+}
+.main-block__p-text {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.link:hover {
+    color: rgb(194, 30, 30);
+}

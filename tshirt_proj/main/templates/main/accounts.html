@@ -1,0 +1,67 @@
+{% extends "../main/base.html" %}
+{% load static %}
+{% block csslink %}
+<link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+{% endblock csslink %}
+{% block title %}
+Аккаунт
+{% endblock title %}
+{% block loginlink %}
+{% if user_profile %}
+<a href="{% url 'account' nickname=user_profile.username %}" class="menu__link">{{ user_profile.username }}</a>
+<div class="line"></div>
+{% else %}
+<a href="{% url 'login' %}" class="menu__link">Авторизация</a>
+<div class="line"></div>
+{% endif %}
+{% endblock loginlink %}
+{% block content %}
+<div class="page__main-block main-block">
+    <div class="main-block__container _container">
+        <div class="main-block__body">
+            <div class="content_block">
+                <div class="main-block__logo_items">
+                    <div class="circle">
+                        <img src="{% static 'images/def_logo.jpg' %}" alt="">
+                    </div>
+                    <div class="main-block__links">
+                        <div class="main-block__username">
+                            Имя пользователя
+                        </div>
+                        <div class="main-block__email">
+                            email@gmail.com
+                        </div>
+                        <div class="main-block__logout">
+                            <a href="{% url 'register' %}" class="main-block__logout_link">Выйти из сессии пользователя</a>
+                        </div>
+                    </div>
+                    <div class="main-block__change_profile">
+                        <a href="{% url 'register' %}" class="main-block__change_link">Изменить данные профиля</a>
+                    </div>
+                </div>
+                <div class="main-block__title_about">
+                    О себе:
+                </div>
+                <div class="main-block__about">
+                    Она предает нас. Россия одна должна быть спасительницей Европы. Наш благодетель знает свое высокое призвание и будет верен ему. Вот одно, во что я верю. Нашему доброму и чудному государю предстоит величайшая роль в мире, и он так добродетелен и хорош, что Бог не оставит его, и он исполнит свое призвание задавить гидру революции, которая теперь еще ужаснее в лице этого убийцы и злодея. Мы одни должны искупить кровь праведника. На кого нам надеяться, я вас спрашиваю?.. Англия с своим коммерческим духом не поймет и не может понять всю высоту души императора Александра. Она отказалась очистить Мальту. Она хочет видеть, ищет заднюю мысль наших действий. Что они сказали Новосильцеву? Ничего. Они не поняли, они не могли понять самоотвержения нашего императора, который ничего не хочет для себя и все хочет для блага мира. И что они обещали?
+                </div>
+                <div class="border">
+                    <div class="wrap">
+                      <div class="product-wrap">
+                        <a href=""><img src="{% static 'images/test1.png' %}"></a>
+                      </div>
+                      <div class="loop-action">
+                        <a href="" class="add-to-cart">Подробнее</a>
+                        <a href="" class="loop-add-to-cart">К автору</a>
+                      </div>
+                    </div>
+                      <div class="product-info">
+                        <h3 class="product-title">Некое название</h3>
+                        <div class="price">Автор: ...</div>
+                     </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

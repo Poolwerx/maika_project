@@ -1,0 +1,172 @@
+/* Обнуление */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+body {
+  height: 100%;
+  line-height: 1;
+  font-size: 14px;
+  color: rgb(6, 11, 36);
+  font-family: "Oswald", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+
+/*-------------------ДОП CSS ДЛЯ ЛИНИЙ-------------------- */
+.line {
+    border-bottom: 2px solid rgb(6, 11, 36); /* Параметры линии */
+   }
+/*-------------------WRAPPER-------------------- */
+.wrapper {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/*------------------CONTAINER-------------------- */
+._container {
+    max-width: 1046px;
+    margin: 0px auto;
+    box-sizing: content-box;
+}
+
+/*-------------------HEADER-------------------- */
+
+.header {
+    position: absolute;
+    background-color: rgb(190, 190, 190);
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 50;
+}
+.header__container {
+    display: flex; 
+    min-height: 104px;
+    align-items: center;
+}
+.header__logo {
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.header__logo_img {
+    margin-left: 20px;
+    width: 90px;
+    height: 90px;
+}
+.header__menu {
+    margin: 0px 0px 0px 350px;
+}
+.menu__list {
+    display: flex;
+}
+.menu__item:not(:last-child) {
+    margin: 0px 21px 0px 0px;
+}
+
+.menu__link {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: calc(24 / 14 * 100%);
+}
+
+.menu__link:hover {
+    color: rgb(194, 30, 30);
+}
+
+.header__logo:hover {
+    color: rgb(194, 30, 30);
+}
+
+
+/*-------------------PAGE-------------------- */
+.page {
+    background-color: rgb(227, 227, 227);
+    flex: 1 1 auto;
+}
+.page__main-block {}
+/*-------------------MAIN-BLOCK-------------------- */
+.main-block {}
+.main-block__container {
+}
+.main-block__body {
+    padding: 184px 0px 191px 0px;
+    display: flex;
+
+}
+
+.main-block__content {
+    max-width: 750px;
+    margin-right: 70px;
+}
+.main-block__title {
+    margin-left: 30px;
+    font-size: 52px;
+    font-weight: 600;
+}
+.main-block__text {
+    margin-top: 10px;
+    line-height: 150%;
+    font-size: 24px;
+}
+.stickman-img {
+    width: 260px;
+    height: 260px;
+}
+
+.main-block__buttons {
+    margin-top: 20px;
+    display: flex;
+}
+.main-block__button {
+    margin-left: 50px;
+    min-height: 36px;
+    min-width: 250px;
+    background-color: rgb(190, 190, 190);
+    display: flex;
+    border-radius: 32px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.main-block__button:hover {
+    background-color: rgb(160, 160, 160);
+}
+/*-------------------FOOTER-------------------- */
+.footer {
+
+}

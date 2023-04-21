@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Главная</title>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <div class="header__container _container">
+            <a href="{% url 'index' %}" class="header__logo">НАЗВАНИЕ</a>
+            <img src="static/images/tshirt.png" alt="" class="header__logo_img">
+            <nav class="header__menu">
+                <div class="line"></div>
+                <ul class="menu__list">
+                    <li class="menu__item">
+                        <a href="#" class="menu__link">Каталог</a>
+                        <div class="line"></div>
+                    </li>
+                    <li class="menu__item">
+                        {% if user_profile %}
+                            <a href="{% url 'account' nickname=user_profile.username %}" class="menu__link">{{ user_profile.username }}</a>
+                            <div class="line"></div>
+                        {% else %}
+                            <a href="{% url 'login' %}" class="menu__link">Авторизация</a>
+                            <div class="line"></div>
+                        {% endif %}
+
+                    </li>
+                    <li class="menu__item">
+                        <a href="#" class="menu__link">FAQ</a>
+                        <div class="line"></div>
+                    </li>
+                    <li class="menu__item">
+                        <a href="{% url 'about' %}" class="menu__link">О сайте</a>
+                        <div class="line"></div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="line"></div>
+    </header>
+    <main class="page">
+        <div class="page__main-block main-block">
+            <div class="main-block__container _container">
+                <div class="main-block__body">
+                    <div class="main-block__content">
+                        <h1 class="main-block__title">Свободный каталог футболок</h1>
+                        <div class="main-block__text">Любые виды, всевозможные тематики и цвета! Не нашли что-то для себя? Станьте создателем собвстенного дизайна, всего в 3 шага - Регистрация - Потверждение аккаунта - Возможность выложить свой уникальный дизайн! Все просто, если возникли вопросы - рассмотрите раздел "FAQ" или про- читайте инструкцию на сайте, возможно обратиться в поддержку. </div>    
+                        <div class="main-block__buttons">
+                            <a href="{% url 'register' %}" class="main-block__button">Регистрация</a>
+                            <a href="#" class="main-block__button">Полезная информация</a>
+                        </div>
+                    </div>
+                    <div class="main__img">
+                        <img src="static/images/stickman2.png" alt="stickman" class="stickman-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        я подвал
+    </footer>
+</div>
+</body>
+</html>

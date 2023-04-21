@@ -1,0 +1,18 @@
+{% extends "../main/base.html" %}
+{% block csslink %}
+<link rel="stylesheet" href="static/css/about.css">
+{% endblock csslink %}
+{% block title %}
+О сайте
+{% endblock title %}
+{% block loginlink %}
+{% if user_profile %}
+<a href="{% url 'login' %}" class="menu__link">{{ user_profile.username }}</a>
+<div class="line"></div>
+{% else %}
+<a href="{% url 'login' %}" class="menu__link">Авторизация</a>
+<div class="line"></div>
+{% endif %}
+{% endblock loginlink %}
+{% block content %}
+{% endblock content %}
