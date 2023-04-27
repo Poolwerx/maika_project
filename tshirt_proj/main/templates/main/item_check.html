@@ -1,0 +1,69 @@
+{% extends "../main/base.html" %}
+{% load static %}
+{% block csslink %}
+<link rel="stylesheet" href="{% static 'css/item_check.css' %}">
+
+{% endblock csslink %}
+{% block title %}
+Просмотр позиции
+{% endblock title %}
+{% block loginlink %}
+{% if user_profile %}
+<a href="{% url 'account' nickname=user_profile.username %}" class="menu__link">{{ user_profile.username }}</a>
+<div class="line"></div>
+{% else %}
+<a href="{% url 'login' %}" class="menu__link">Авторизация</a>
+<div class="line"></div>
+{% endif %}
+{% endblock loginlink %}
+{% block content %}
+<div class="page__main-block main-block">
+    <div class="main-block__container _container">
+        <div class="main-block__body">
+            <div class="content_block">
+                {% for element in user_items %}
+                <div class="main-block__title">
+                    Название - {{element.item_name}}
+                </div>
+                <div class="main-block__category">
+                    Категория - {{element.category}}
+                </div>
+                <div class="main-block__category">
+                    Автор - {{element.author}}
+                </div>
+                <div class="main-block__title_about">
+                    О позиции товара/изделия:
+                </div>
+                <div class="main-block__about">
+                    {{ element.description }}
+                </div>
+                <div class="cards_show">
+                    <div class="container card">
+                        <div class="card_left">
+                          <a href="#"><i class="fa fa-long-arrow-left left" aria-hidden="true"></i></a>
+                          <a href="#"><i class="fa fa-long-arrow-right right" aria-hidden="true"></i></a>
+                          <img src="{% static element.pictures.image_main %}">
+                        </div> 
+                      </div>
+                      <div class="container card">
+                        <div class="card_left">
+                          <a href="#"><i class="fa fa-long-arrow-left left" aria-hidden="true"></i></a>
+                          <a href="#"><i class="fa fa-long-arrow-right right" aria-hidden="true"></i></a>
+                          <img src="{% static element.pictures.image_dop1 %}">
+                        </div> 
+                      </div>
+                      <div class="container card">
+                        <div class="card_left">
+                          <a href="#"><i class="fa fa-long-arrow-left left" aria-hidden="true"></i></a>
+                          <a href="#"><i class="fa fa-long-arrow-right right" aria-hidden="true"></i></a>
+                          <img src="{% static element.pictures.image_dop2 %}">
+                        </div> 
+                      </div>
+                </div>
+                {% endfor %}
+                  
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

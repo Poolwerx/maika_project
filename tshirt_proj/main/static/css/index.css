@@ -168,5 +168,31 @@ h6 {
 }
 /*-------------------FOOTER-------------------- */
 .footer {
-
-}
+    min-height: 90px;
+    background-color: rgb(190, 190, 190);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer_about {
+    margin-left: 100px;
+    font-size: 26px;
+    font-weight: 500;
+  }
+  .footer_block {
+    display: flex;
+    font-size: 22px;
+    align-items: center;
+    justify-content: end;
+    margin-right: 50px;
+  }
+  .footer_title {
+    margin-right: 25px;
+  }
+  .footer_items {
+  
+  }
+  
+  .footer_item {
+  
+  }

@@ -1,0 +1,52 @@
+{% extends "../main/base.html" %}
+{% load static %}
+{% block csslink %}
+<link rel="stylesheet" href="{% static 'css/item_catalog.css' %}">
+
+{% endblock csslink %}
+{% block title %}
+Просмотр позиции
+{% endblock title %}
+{% block loginlink %}
+{% if user_profile %}
+<a href="{% url 'account' nickname=user_profile.username %}" class="menu__link">{{ user_profile.username }}</a>
+<div class="line"></div>
+{% else %}
+<a href="{% url 'login' %}" class="menu__link">Авторизация</a>
+<div class="line"></div>
+{% endif %}
+{% endblock loginlink %}
+{% block content %}
+<div class="page__main-block main-block">
+    <div class="main-block__container _container">
+        <div class="main-block__body">
+            <div class="content_block">
+                <div class="main-block__cards_container">
+                    {% if user_items %}
+                    {% for element in user_items %}
+                    <div class="container card">
+                      <div class="card_left">
+                        <a href="#"><i class="fa fa-long-arrow-left left" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-long-arrow-right right" aria-hidden="true"></i></a>
+                        <img src="{% static element.pictures.image_main %}">
+                      </div>
+                      <div class="card_right">
+                        <span>{{element.category}}</span>
+                        <h3>{{element.item_name}}</h3>
+                        <p>{{element.description}}</p>
+                        <div class="card_footer">
+                          <span class="price">{{element.author}}</span>
+                          <a href="{% url 'item_check' author=user_profile.username id=element.id %}" class="btn">
+                            подробнее
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                  </div> 
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

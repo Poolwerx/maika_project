@@ -1,0 +1,81 @@
+{% extends "../main/base.html" %}
+{% load static %}
+{% block csslink %}
+<link rel="stylesheet" href="{% static 'css/add_new_item.css' %}">
+{% endblock csslink %}
+{% block title %}
+Добавить предмет
+{% endblock title %}
+{% block loginlink %}
+{% if user_profile %}
+<a href="{% url 'account' nickname=user_profile.username %}" class="menu__link">{{ user_profile.username }}</a>
+<div class="line"></div>
+{% else %}
+<a href="{% url 'login' %}" class="menu__link">Авторизация</a>
+<div class="line"></div>
+{% endif %}
+{% endblock loginlink %}
+{% block content %}
+<div class="page__main-block main-block">
+    <div class="main-block__container _container">
+        <div class="main-block__body">
+            <div class="content_block">
+                <div class="main-block__title">
+                    - Добавить новый предмет -
+                </div>
+                <form method="post" enctype="multipart/form-data" class="register_form" action="{% url 'additem' nickname=user_profile.username %}">
+                    {% csrf_token %}
+                <div class="main-block__item_name">
+                    <div class="main-block__item_name_title">Добавьте название товару</div>
+                    <input type="text" class="item_name" placeholder="Название содержит не более 25 и не менее 6 символов" name="item_name" maxlength="25" minlength="6" required>
+                </div>
+                <div class="main-block__checkboxes">
+                    <div class="main-block__checkbox_title">
+                        Выберите соответствующую категорию
+                    </div>
+                    <div class="main-block__checkbox_items">
+                        <div class="main-block__checkbox_item">
+                            <input type="radio" id="" name="category1" value="1" checked>
+                            <label for="category1">Классика</label>
+                        </div>
+                        <div class="main-block__checkbox_item">
+                            <input type="radio" id="" name="category2" value="1">
+                            <label for="category1">Спорт</label>
+                        </div>
+                        <div class="main-block__checkbox_item">
+                            <input type="radio" id="" name="category3" value="1">
+                            <label for="category1">Лонгслив</label>
+                        </div>
+                        <div class="main-block__checkbox_item">
+                            <input type="radio" id="" name="category4" value="1">
+                            <label for="category1">*Custom</label>
+                        </div>
+                    </div>
+                    <div class="main-block__title_about">
+                        Основная информация о позиции:
+                    </div>
+                    <div class="main-block__text_about_item">
+                        <textarea name="text_about" id="" cols="30" rows="10" placeholder="Тут можете написать о предмете: желательно кратко (400 символов лимит)" maxlength="400" minlength="6" ></textarea> 
+                    </div>
+                    <div class="main-block__images_block">
+                        <div class="main-block__logo_img">
+                            Добавить основное фото для карточки предмета *(обязательное) - > <input type="file" name="main_picture" required>
+                        </div>
+                        <div class="main-block__logo_img">
+                            Добавить дополнительное фото для карточки предмета *(обязательное) - > <input type="file" name="dop1_picture">
+                        </div>
+                        <div class="main-block__logo_img">
+                            Добавить дополнительное фото для карточки предмета  *(обязательное) - > <input type="file" name="dop2_picture">
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="main-block__form-buttons">
+                    <button type="submit" class="button-form">Отправить</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

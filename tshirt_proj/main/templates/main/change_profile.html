@@ -1,0 +1,60 @@
+{% extends "../main/base.html" %}
+{% load static %}
+{% block csslink %}
+<link rel="stylesheet" href="{% static 'css/change_profile.css' %}">
+{% endblock csslink %}
+{% block title %}
+Изменение данных 
+{% endblock title %}
+{% block loginlink %}
+{% if user_profile %}
+<a href="{% url 'account' nickname=user_profile.username %}" class="menu__link">{{ user_profile.username }}</a>
+<div class="line"></div>
+{% else %}
+<a href="{% url 'login' %}" class="menu__link">Авторизация</a>
+<div class="line"></div>
+{% endif %}
+{% endblock loginlink %}
+{% block content %}
+<div class="page__main-block main-block">
+    <div class="main-block__container _container">
+        <div class="main-block__body">
+            <div class="content_block">
+                <div class="main-block__title">
+                    Информация о пользователе - {{user_profile.username}}
+                </div>
+                <form method="post" enctype="multipart/form-data" class="register_form" action="{% url 'change' nickname=user_profile.username %}">
+                    {% csrf_token %}
+                <div class="main-block__block_changelock">
+                    <div class="main-block__logo_img">
+                        Изменить/Добавить аватарку - > <input type="file" name="logo">
+                    </div>
+                    <div class="circle">
+                        <img src="{% static user.profile_picture %}" alt="">
+                    </div>
+                    <div class="main-block__title_about">
+                        Основная информация о себе:
+                    </div>
+                    <div class="main-block__text_about_user">
+                        <textarea name="text_about" id="" cols="30" rows="10" placeholder="Тут можете написать о себе: желательно кратко (400 символов лимит)">{{user.about}}</textarea> 
+                    </div>
+                    <div class="main-block__form-field">
+                        <input type="text" class="email" placeholder="Имя (оно скрыты от обычных пользователей)" name="first_name" value="{{user_profile.first_name}}">
+                    </div>
+                    <div class="main-block__form-field">
+                        <input type="text" class="email" placeholder="Фамилия (она скрыты от обычных пользователей)" name="second_name" value="{{user_profile.last_name}}">
+                    </div>
+                    <div class="main-block__var_checkbox">
+                        <input type="checkbox" id="happy" name="checkbox" value="yes">
+                        <label for="happy">Потверждение аккаунта - (этот параметр нужен для отображения автора в каталоге)</label>
+                    </div>
+                    <div class="main-block__form-buttons">
+                        <button type="submit" class="button-form">Отправить</button>
+                    </div>
+                </div>
+                </form>
+            </div>           
+        </div>
+    </div>
+</div>
+{% endblock content %}

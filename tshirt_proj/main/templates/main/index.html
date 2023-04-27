@@ -12,13 +12,13 @@
 <div class="wrapper">
     <header class="header">
         <div class="header__container _container">
-            <a href="{% url 'index' %}" class="header__logo">НАЗВАНИЕ</a>
+            <a href="{% url 'index' %}" class="header__logo">T-SHOP</a>
             <img src="static/images/tshirt.png" alt="" class="header__logo_img">
             <nav class="header__menu">
                 <div class="line"></div>
                 <ul class="menu__list">
                     <li class="menu__item">
-                        <a href="#" class="menu__link">Каталог</a>
+                        <a href="{% url 'item_catalog' %}" class="menu__link">Каталог</a>
                         <div class="line"></div>
                     </li>
                     <li class="menu__item">
@@ -63,8 +63,27 @@
             </div>
         </div>
     </main>
+    <div class="line"></div>
     <footer class="footer">
-        я подвал
+        <div class="footer_about">
+            T-SHOP
+        </div>
+        <div class="footer_block">
+            <div class="footer_title">
+                Контакты:
+            </div>
+            <div class="footer_items">
+                <div class="footer_item">
+                    почта - ...
+                </div>
+                <div class="footer_item">
+                    контакты - ...
+                </div>
+                <div class="footer_item">
+                    контакты - ...
+                </div>
+            </div>
+        </div>
     </footer>
 </div>
 </body>

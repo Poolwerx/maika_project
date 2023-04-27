@@ -1,0 +1,77 @@
+.main-block {}
+.main-block__container {}
+.main-block__body {padding: 160px 0px 191px 0px;}
+.main-block__title {
+    font-size: 38px;
+}
+.main-block__item_name {}
+.main-block__form-buttons{}
+.button-form {
+    margin-top: 20px;
+    display: block;
+    height: 35px;
+    width: 500px;
+    border-radius: 15px;
+    background-color: rgb(190, 190, 190);
+    text-align: center;
+    line-height: 40px;
+    margin-left: 50px;
+    font-size: 18px;
+    font-weight: 400;
+    
+}
+.button-form:hover {
+    background-color: rgb(160, 160, 160);
+}
+.main-block__item_name_title {
+    margin-bottom: 10px;
+}
+.main-block__item_name {
+    margin-top: 15px;
+    font-size: 28px;
+}
+.main-block__item_name input {
+    height: 45px; 
+    width: 100%;
+    font-size: 14px;
+    border: 2px solid #E9F2FF;
+    border-radius: 5px;
+    padding-left: 25px;
+ }
+.main-block__checkboxes {
+
+}
+.main-block__checkbox_title {
+    font-size: 28px;
+    margin-top: 10px;
+}
+.main-block__checkbox_items {
+    display: flex;
+}
+.main-block__checkbox_item:not(:last-child) {
+    margin-right: 20px;
+}
+.main-block__checkbox_item {
+    margin-top: 10px;
+    font-size: 22px;
+}
+
+.main-block__title_about {
+    font-size: 28px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+textarea {
+    font-size: 16px;
+    width: 40%; /* Ширина поля в процентах */
+    height: 200px; /* Высота поля в пикселах */
+    resize: none; /* Запрещаем изменять размер */
+}
+.main-block__images_block {
+    margin-top: 10px;
+
+}
+.main-block__logo_img {
+    margin-bottom: 10px;
+    font-size: 20px;
+}

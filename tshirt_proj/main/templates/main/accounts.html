@@ -22,44 +22,58 @@
             <div class="content_block">
                 <div class="main-block__logo_items">
                     <div class="circle">
-                        <img src="{% static 'images/def_logo.jpg' %}" alt="">
+                        <img src="{% static user.profile_picture %}" alt="">
                     </div>
                     <div class="main-block__links">
                         <div class="main-block__username">
-                            Имя пользователя
+                            {{ user.user.username }}
                         </div>
                         <div class="main-block__email">
-                            email@gmail.com
+                          {{ user.user.email }}
                         </div>
+                        {% if user.user_name == user_profile.username %}
                         <div class="main-block__logout">
-                            <a href="{% url 'register' %}" class="main-block__logout_link">Выйти из сессии пользователя</a>
+                            <a href="{% url 'logout' %}" class="main-block__logout_link">Выйти из сессии пользователя</a>
                         </div>
+                        {% endif %}
                     </div>
+                    {% if user.user_name == user_profile.username %}
                     <div class="main-block__change_profile">
-                        <a href="{% url 'register' %}" class="main-block__change_link">Изменить данные профиля</a>
+                        <a href="{% url 'change' nickname=user_profile.username %}" class="main-block__change_link">Изменить данные профиля</a>
+                        <a href="{% url 'additem' nickname=user_profile.username %}" class="main-block__change_link">Добавить позицию</a>
                     </div>
+                    {% endif %}
                 </div>
                 <div class="main-block__title_about">
                     О себе:
                 </div>
                 <div class="main-block__about">
-                    Она предает нас. Россия одна должна быть спасительницей Европы. Наш благодетель знает свое высокое призвание и будет верен ему. Вот одно, во что я верю. Нашему доброму и чудному государю предстоит величайшая роль в мире, и он так добродетелен и хорош, что Бог не оставит его, и он исполнит свое призвание задавить гидру революции, которая теперь еще ужаснее в лице этого убийцы и злодея. Мы одни должны искупить кровь праведника. На кого нам надеяться, я вас спрашиваю?.. Англия с своим коммерческим духом не поймет и не может понять всю высоту души императора Александра. Она отказалась очистить Мальту. Она хочет видеть, ищет заднюю мысль наших действий. Что они сказали Новосильцеву? Ничего. Они не поняли, они не могли понять самоотвержения нашего императора, который ничего не хочет для себя и все хочет для блага мира. И что они обещали?
+                    {{ user.about }}
                 </div>
-                <div class="border">
-                    <div class="wrap">
-                      <div class="product-wrap">
-                        <a href=""><img src="{% static 'images/test1.png' %}"></a>
-                      </div>
-                      <div class="loop-action">
-                        <a href="" class="add-to-cart">Подробнее</a>
-                        <a href="" class="loop-add-to-cart">К автору</a>
-                      </div>
-                    </div>
-                      <div class="product-info">
-                        <h3 class="product-title">Некое название</h3>
-                        <div class="price">Автор: ...</div>
-                     </div>
+              <div class="main-block__cards_container">
+                {% if user_items %}
+                {% for element in user_items %}
+                <div class="container card">
+                  <div class="card_left">
+                    <a href="#"><i class="fa fa-long-arrow-left left" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-long-arrow-right right" aria-hidden="true"></i></a>
+                    <img src="{% static element.pictures.image_main %}">
                   </div>
+                  <div class="card_right">
+                    <span>{{element.category}}</span>
+                    <h3>{{element.item_name}}</h3>
+                    <p>{{element.description}}</p>
+                    <div class="card_footer">
+                      <span class="price">{{element.author}}</span>
+                      <a href="{% url 'item_check' author=user_profile.username id=element.id %}" class="btn">
+                        подробнее
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+              </div>  
             </div>
         </div>
     </div>
